@@ -50,6 +50,12 @@ int checkstack(int i,int depth,int sit){ // situation
     }        
 }
 
+void printStackAns(int ans){
+    if(ans==-1){ return ;}    
+    printf("%d ",ansstack[ans][0]);
+    printStackAns(ansstack[ans][2]);
+}
+
 void DFS()
 {	
 	int okk=0; 
@@ -81,11 +87,8 @@ void DFS()
 					for(int u=output;u>=0;u--){
 						printf("%d ",stack[u][0]);
 					}
-					printf("\n");
-                	printf("%d ",ansstack[0][0]);
-                	for(int m=tatal-1;m>0;m--){
-                		printf("%d ", ansstack[point-m][0]);
-					} 	
+					printf("\n");                	
+                	printStackAns(point-1);
                     okk=1;
                     break;
                 }
